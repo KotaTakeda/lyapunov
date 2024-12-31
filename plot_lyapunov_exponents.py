@@ -7,12 +7,15 @@ LE = np.load("l96_le.npy")
 print(LE.shape)
 
 # Plot time series
+t = np.arange(0.0, T, dt)
+plot_per = 100
 fig1 = plt.figure()
-plt.plot(LE[::100], lw=0.5)
-plt.plot(np.zeros_like(LE[::100]), lw=0.5, color="grey", linestyle="--")
+plt.plot(t[::plot_per], LE[::plot_per], lw=0.5)
+plt.plot(t[::plot_per], np.zeros_like(t[::plot_per]), lw=0.5, color="grey", linestyle="--")
 plt.xlabel("time")
 plt.ylabel("Lyapunov exponent")
-fig1.savefig("lyapunov_exponents_t.pdf", transparent=True)
+plt.title(f"F={F}, J={J}, dt={dt}, T={T}")
+fig1.savefig("lyapunov_exponents_t.png", transparent=True)
 plt.show()
 
 # Plot final Lyapunov exponents
@@ -29,5 +32,5 @@ plt.plot(
 plt.xlabel("Index")
 plt.ylabel("Lyapunov exponent")
 plt.title(f"F={F}, J={J}, dt={dt}, T={T}")
-fig2.savefig("lyapunov_exponents.pdf", transparent=True)
+fig2.savefig("lyapunov_exponents.png", transparent=True)
 plt.show()

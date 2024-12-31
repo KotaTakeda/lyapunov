@@ -128,3 +128,6 @@ lorenz96_cython/lorenz96_cython.c
 data/
 *.npy
 # *.pdf
+
+# DS_Store
+.DS_Store
