@@ -1,7 +1,7 @@
 import numpy as np
 from lorenz96_cython import rk4_cython, lorenz96_cython
 from tqdm import tqdm
-from set_params_l96 import J, F, dt, T, T_spinup
+from lorenz96.set_params_l96 import J, F, dt, T, T_spinup
 
 # set parameters
 p = np.full(J, F)

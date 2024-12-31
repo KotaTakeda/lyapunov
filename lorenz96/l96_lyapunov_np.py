@@ -1,6 +1,6 @@
 import numpy as np
 from tqdm import tqdm
-from set_params_l96 import J, F, dt, T
+from lorenz96.set_params_l96 import J, F, dt, T
 
 # Parameters
 p = np.full(J, F)

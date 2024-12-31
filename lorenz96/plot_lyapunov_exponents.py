@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from set_params_l96 import J, F, dt, T
+from lorenz96.set_params_l96 import J, F, dt, T
 
 # Load data
 LE = np.load("l96_le.npy")
