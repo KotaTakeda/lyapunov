@@ -1,10 +1,13 @@
 # Computing Lyapunov exponents of Lorenz 96 equation
+
+![LE](https://github.com/KotaTakeda/lyapunov/blob/main/lyapunov_exponents.png)
+![LE_t](https://github.com/KotaTakeda/lyapunov/blob/main/lyapunov_exponents_t.png)
+
 ## Requirements
 - Numpy
 - Matplotlib
 - Cython (if use)
 <!-- - JAX (if use) -->
-
 
 ## Lorenz 96 equation
 The Lorenz 96 equation is a toy model for spatio-temporal chaos.
