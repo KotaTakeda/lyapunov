@@ -1,12 +1,12 @@
 import numpy as np
 from tqdm import tqdm
-
-# Lorenz96 parameters
-J = 40  # Dimensionality of state space
-F = 8  # Forcing parameter
+from set_params_l96 import J, F, dt, T
 
 # Parameters
 p = np.full(J, F)
+
+# Time array
+t = np.arange(0.0, T, dt)
 
 
 # 4th order Runge Kutta
@@ -85,16 +85,11 @@ def _compute_le2(f, Jf, x0, t, p, return_sol=False):
 x0 = np.ones(J) * F
 x0[J // 2] *= 1.01
 
-#
-dt = 0.01
+# spin-up
 t_spinup = np.arange(0.0, 1000.0, dt)
 x = x0
 for t in tqdm(t_spinup):
     x = rk4(lorenz96, t, x, p, dt)
-
-# Time array
-dt = 0.01
-t = np.arange(0.0, 1000.0, dt)
 
 # Compute Lyapunov exponents
 LE = _compute_le2(lorenz96, lorenz96_jacobian, x, t, p)

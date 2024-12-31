@@ -125,5 +125,6 @@ cython_debug/
 lorenz96_cython/lorenz96_cython.c
 
 # data
+data/
 *.npy
 *.pdf

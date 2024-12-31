@@ -1,11 +1,26 @@
-# Computing Lyapunov exponents of Lorenz 96
+# Computing Lyapunov exponents of Lorenz 96 equation
 ## Requirements
 - Numpy
 - Matplotlib
 - Cython (if use)
 <!-- - JAX (if use) -->
 
+
+## Lorenz 96 equation
+The Lorenz 96 equation is a toy model for spatio-temporal chaos.
+For a number of variables $ J \in \mathbb{N} $, external force $ F \in \mathbb{R} $ and state variable $ \mathbb{u} \in \mathbb{R}^J $ on 1D periodic domain, the Lorenz 96 equation (Lorenz 1996) is given by
+
+$$ \frac {du^{i}}{dt} =(u^{i+1}-u^{i-2})u^{i-1}-u^{i}+F, $$
+
+with $ u^{-1} = u^{J-1} $, $ u^0 = u^J $, and $ u^{J+1} = u^1 $.
+
+Typical parameter: (J, F) = (40, 8.0)
+
+
 ## Compute
+### Set parameters
+modify `set_params_l96.py`
+
 ### by Numpy
 Compute LEs
 ```sh

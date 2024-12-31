@@ -1,16 +1,13 @@
 import numpy as np
 from lorenz96_cython import rk4_cython, lorenz96_cython
 from tqdm import tqdm
+from set_params_l96 import J, F, dt, T, T_spinup
 
-# Parameters
-J = 40
-F = 8.0
-
+# set parameters
 p = np.full(J, F)
 
-# Time settings
-dt = 0.01
-t = np.arange(0.0, 1000.0, dt)
+# Time array
+t = np.arange(0.0, T, dt)
 
 # Compute spin-up trajectory
 # Initial conditions
@@ -18,7 +15,7 @@ x0 = np.ones(J) * F
 x0[J // 2] *= 1.01
 
 # Spin-up
-t_spinup = np.arange(0.0, 1000.0, dt)
+t_spinup = np.arange(0.0, T_spinup, dt)
 x = x0
 for tt in tqdm(t_spinup):
     x = rk4_cython(lorenz96_cython, tt, x, p, dt)
