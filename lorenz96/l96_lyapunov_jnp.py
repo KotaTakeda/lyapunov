@@ -3,7 +3,7 @@ import jax.numpy as jnp
 from jax import jit, jacfwd, vmap, lax
 from tqdm import tqdm
 from functools import partial
-from lorenz96.set_params_l96 import J, F, dt, T
+from set_params_l96 import J, F, dt, T
 
 # Enable Metal
 jax.config.update("jax_platform_name", "cpu")  # "cpu" or "METAL"(macOS)

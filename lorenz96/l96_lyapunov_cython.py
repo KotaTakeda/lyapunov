@@ -1,7 +1,7 @@
 import numpy as np
-from lorenz96_cython import rk4_cython, lorenz96_cython
+from lorenz96_cython import rk4_cython, lorenz96_cython, lorenz96_jacobian_cython
 from tqdm import tqdm
-from lorenz96.set_params_l96 import J, F, dt, T, T_spinup
+from set_params_l96 import J, F, dt, T, T_spinup
 
 # set parameters
 p = np.full(J, F)
@@ -53,20 +53,8 @@ def compute_le_cython(f, Jf, x0, t, p):
     return LE
 
 
-# Jacobian
-def lorenz96_jacobian(t, x, p):
-    J = x.shape[0]
-    jac = np.zeros((J, J))
-    for i in range(J):
-        jac[i, (i - 2) % J] = -x[i - 1]
-        jac[i, (i - 1) % J] = x[(i + 1) % J] - x[i - 2]
-        jac[i, i] = -1
-        jac[i, (i + 1) % J] = x[i - 1]
-    return jac
-
-
 # Compute Lyapunov exponents
-LE = compute_le_cython(lorenz96_cython, lorenz96_jacobian, x, t, p)
+LE = compute_le_cython(lorenz96_cython, lorenz96_jacobian_cython, x, t, p)
 print("Final Lyapunov exponents:", LE[-1])
 print("Number of positive exponents:", np.sum(LE[-1] > 0))
 
