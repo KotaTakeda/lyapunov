@@ -44,7 +44,7 @@ def lorenz96_jacobian(t, x, p):
 
 
 # Compute Lyapunov exponents
-def _compute_le2(f, Jf, x0, t, p, return_sol=False):
+def compute_le(f, Jf, x0, t, p, return_sol=False):
     Nx = len(x0)
     Nt = len(t)
 
@@ -92,7 +92,7 @@ for t in tqdm(t_spinup):
     x = rk4(lorenz96, t, x, p, dt)
 
 # Compute Lyapunov exponents
-LE = _compute_le2(lorenz96, lorenz96_jacobian, x, t, p)
+LE = compute_le(lorenz96, lorenz96_jacobian, x, t, p)
 print("Final Lyapunov exponents:", LE[-1])
 print("Number of positive exponents:", np.sum(LE[-1] > 0))
 
