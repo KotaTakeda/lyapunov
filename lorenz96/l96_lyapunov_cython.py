@@ -3,7 +3,10 @@ from lorenz96_cython import rk4_cython, lorenz96_cython, lorenz96_jacobian_cytho
 from tqdm import tqdm
 from set_params_l96 import J, F, dt, T, T_spinup
 
-# set parameters
+# Print parameters
+print("(J, F)", (J, F))
+
+# Set parameters
 p = np.full(J, F)
 
 # Time array
@@ -57,6 +60,7 @@ def compute_le_cython(f, Jf, x0, t, p):
 LE = compute_le_cython(lorenz96_cython, lorenz96_jacobian_cython, x, t, p)
 print("Final Lyapunov exponents:", LE[-1])
 print("Number of positive exponents:", np.sum(LE[-1] > 0))
+# TODO: Change to num of positive and neutral exponents. The neutral exponent is the one closest to zero.
 
 # Save Lyapunov exponents
 np.save("l96_le.npy", LE)

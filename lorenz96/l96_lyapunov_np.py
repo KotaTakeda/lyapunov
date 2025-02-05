@@ -2,7 +2,10 @@ import numpy as np
 from tqdm import tqdm
 from set_params_l96 import J, F, dt, T
 
-# Parameters
+# Print parameters
+print("(J, F)", (J, F))
+
+# Set arameters
 p = np.full(J, F)
 
 # Time array
