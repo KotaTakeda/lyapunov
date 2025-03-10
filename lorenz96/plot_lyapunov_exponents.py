@@ -19,12 +19,12 @@ fig1.savefig("lyapunov_exponents_t.png", transparent=True)
 plt.show()
 
 # Plot final Lyapunov exponents
-idx_zero = np.argmin(np.abs(LE[-1]))
+i_neutral = np.argmin(np.abs(LE[-1]))
 fig2 = plt.figure()
 plt.plot(LE[-1], "o-", lw=0.5, color="black")
 plt.plot(
-    idx_zero,
-    LE[-1, idx_zero],
+    i_neutral,
+    LE[-1, i_neutral],
     color="red",
     marker="o",
     markersize=5,

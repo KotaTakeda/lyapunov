@@ -58,9 +58,9 @@ def compute_le_cython(f, Jf, x0, t, p):
 
 # Compute Lyapunov exponents
 LE = compute_le_cython(lorenz96_cython, lorenz96_jacobian_cython, x, t, p)
+i_neutral = np.argmin(np.abs(LE[-1])) # The neutral exponent is the closest one to zero.
 print("Final Lyapunov exponents:", LE[-1])
-print("Number of positive exponents:", np.sum(LE[-1] > 0))
-# TODO: Change to num of positive and neutral exponents. The neutral exponent is the one closest to zero.
+print("Number of positive-neutral exponents:", i_neutral+1)
 
 # Save Lyapunov exponents
 np.save("l96_le.npy", LE)

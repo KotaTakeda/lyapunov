@@ -84,9 +84,11 @@ for tt in tqdm(t_spinup):
     x = rk4(lorenz96, tt, x, p, dt)
 
 
+
 LE = compute_le_jnp(lorenz96, lorenz96_jacobian, x, t, p)
+i_neutral = jnp.argmin(jnp.abs(LE[-1])) # The neutral exponent is the closest one to zero.
 print("Final Lyapunov exponents:", LE[-1])
-print("Number of positive exponents:", sum(LE[-1] > 0))
+print("Number of positive-neutral exponents:", i_neutral+1)
 
 
 # Save Lyapunov exponents

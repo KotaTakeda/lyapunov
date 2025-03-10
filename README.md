@@ -3,6 +3,7 @@
 ## Requirements
 - Numpy
 - Matplotlib
+- tadm
 - Cython (if use)
 <!-- - JAX (if use) -->
 

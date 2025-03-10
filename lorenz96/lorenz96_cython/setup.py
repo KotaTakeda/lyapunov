@@ -19,6 +19,6 @@ setup(
     name="lorenz96_cython",
     ext_modules=cythonize("lorenz96_cython.pyx"),
     include_dirs=[np.get_include()],
-    package_dir={"lorenz96_cython": "lorenz96_cython"},
+    package_dir={"lorenz96_cython": ""},
     packages=["lorenz96_cython"],
 )

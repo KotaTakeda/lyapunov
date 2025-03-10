@@ -123,6 +123,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 lorenz96_cython/lorenz96_cython.c
+*.c
 
 # data
 data/
