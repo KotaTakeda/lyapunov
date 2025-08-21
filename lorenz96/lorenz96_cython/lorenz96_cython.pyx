@@ -43,3 +43,23 @@ def lorenz96_jacobian_cython(double t, cnp.ndarray[double, ndim=1] x, cnp.ndarra
         jac[i, i] = -1
         jac[i, (i + 1) % J] = x[i - 1]
     return jac
+
+// vector field for state-variation equation
+def dSdt_cython(double t, cnp.ndarray[double, ndim=1] xv, cnp.ndarray[double, ndim=1] p):
+    cdef int Nx = p.shape[0]
+    cdef cnp.ndarray[double, ndim=1] x = xv[:Nx]
+    cdef cnp.ndarray[double, ndim=1] V = xv[Nx:]
+    cdef cnp.ndarray[double, ndim=1] dx = lorenz96_cython(t, x, p)
+    cdef cnp.ndarray[double, ndim=2] jac = lorenz96_jacobian_cython(t, x, p)
+    cdef cnp.ndarray[double, ndim=1] dV = np.dot(jac, V.reshape(Nx, Nx)).flatten()
+    return np.concatenate([dx, dV])
+
+// rk4 for state-variation equation
+def rk4_cython_dSdt_cython(double t, cnp.ndarray[double, ndim=1] xv, cnp.ndarray[double, ndim=1] p, double dt):
+    cdef int N = xv.shape[0]
+    cdef cnp.ndarray[double, ndim=1] k1 = dSdt_cython(t, xv, p)
+    cdef cnp.ndarray[double, ndim=1] k2 = dSdt_cython(t + dt / 2, xv + k1 * dt / 2, p)
+    cdef cnp.ndarray[double, ndim=1] k3 = dSdt_cython(t + dt / 2, xv + k2 * dt / 2, p)
+    cdef cnp.ndarray[double, ndim=1] k4 = dSdt_cython(t + dt, xv + k3 * dt, p)
+    cdef cnp.ndarray[double, ndim=1] xt = xv + (k1 + 2 * k2 + 2 * k3 + k4) * dt / 6
+    return xt
