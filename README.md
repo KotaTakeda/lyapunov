@@ -2,6 +2,7 @@
 
 ## Requirements
 - Numpy
+- Scipy
 - Matplotlib
 - tqdm
 - Cython (if use)
@@ -57,6 +58,9 @@ python3 plot_lyapunov_exponents.py
 
 ![LE](https://github.com/KotaTakeda/lyapunov/blob/main/lorenz96/lyapunov_exponents.png)
 ![LE_t](https://github.com/KotaTakeda/lyapunov/blob/main/lorenz96/lyapunov_exponents_t.png)
+
+
+## Notes
 
 
 ## References
