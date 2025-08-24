@@ -60,11 +60,9 @@ python3 plot_lyapunov_exponents.py
 ![LE_t](https://github.com/KotaTakeda/lyapunov/blob/main/lorenz96/lyapunov_exponents_t.png)
 
 
-## Notes
-
 
 ## References
-- Sandri, M. (1996). Numerical calculation of Lyapunov exponents. Mathematica Journal, 6(3), 78-84.
-- Hubertus F. von Bremen, F. E. Udwadia, W. Proskurowski, An efficient QR based method for the computation of Lyapunov exponents, Physica D: Nonlinear Phenomena, Volume 101(1–2), 1997, 1-16.
+- Sandri, M. (1996) Numerical calculation of Lyapunov exponents. Mathematica Journal, 6(3), 78-84.
+- Hubertus F. von Bremen, F. E. Udwadia, W. Proskurowski (1997) An efficient QR based method for the computation of Lyapunov exponents, Physica D: Nonlinear Phenomena, Volume 101(1–2), 1-16.
 - Cython, https://github.com/cython/cython
 - JAX, https://jax.readthedocs.io/en/latest/
