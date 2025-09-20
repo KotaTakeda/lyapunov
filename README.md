@@ -19,7 +19,7 @@ with $u^{-1} = u^{J-1}$, $u^0 = u^J$, and $u^{J+1} = u^1$.
 Typical parameter: (J, F) = (40, 8.0)
 
 ### Compute
-#### Move directory
+#### Move to directory
 ```sh
 cd lorenz96
 ```
