@@ -8,9 +8,9 @@
 - Cython (if use)
 <!-- - JAX (if use) -->
 
-## Lorenz 96 equation
-The Lorenz 96 equation is a toy model for spatio-temporal chaos.
-For a number of variables $J \in \mathbb{N}$, external force $F \in \mathbb{R}$ and state variable $\mathbb{u} \in \mathbb{R}^J$ on 1D periodic domain, the Lorenz 96 equation (Lorenz 1996) is given by
+## Lorenz 96 model
+The Lorenz 96 model is a toy model for spatio-temporal chaos.
+For a number of variables $J \in \mathbb{N}$, external force $F \in \mathbb{R}$ and state variable $\mathbb{u} \in \mathbb{R}^J$ on 1D periodic domain, the Lorenz 96 model (Lorenz 1996) is given by
 
 $$ \frac {du^{i}}{dt} =(u^{i+1}-u^{i-2})u^{i-1}-u^{i}+F, $$
 
@@ -25,7 +25,7 @@ cd lorenz96
 ```
 
 #### Set parameters
-modify `set_params_l96.py`
+modify `set_params.py`
 
 #### by Numpy
 Compute LEs
@@ -53,7 +53,8 @@ python3 l96_lyapunov_jnp.py
 ### Plot
 Plot
 ```sh
-python3 plot_lyapunov_exponents.py
+cd .. # top level
+python3 plot_lyapunov_exponents.py --data_dir=lorenz96
 ```
 
 ![LE](https://github.com/KotaTakeda/lyapunov/blob/main/lorenz96/lyapunov_exponents.png)

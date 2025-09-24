@@ -1,14 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import argparse
-from set_params_l96 import J, F, dt, T
+# from lorenz96.set_params import J, F, dt, T
+from util import load_params
 
-plt.style.use("../vis.mplstyle")
+plt.style.use("vis.mplstyle")
 
 parser = argparse.ArgumentParser(description="Plot LEs from data")
 parser.add_argument("--data_dir", type=str, default=".", help="Directory to load data")
 args = parser.parse_args()
 data_dir = args.data_dir
+
+set_params = load_params(data_dir)
+dt = set_params.dt
+T = set_params.T
 
 # Set save format
 save_fmt = "pdf"  # ["png", "pdf"]

@@ -1,6 +1,6 @@
 import numpy as np
 from tqdm import tqdm
-from set_params_l96 import J, F, dt, T
+from set_params import J, F, dt, T # load local set_params.py
 
 # Print parameters
 print("(J, F)", (J, F))

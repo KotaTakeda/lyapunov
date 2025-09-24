@@ -2,7 +2,7 @@ import numpy as np
 import scipy as sp
 from lorenz96_cython import rk4_cython, lorenz96_cython, lorenz96_jacobian_cython, dSdt_cython, rk4_cython_dSdt_cython
 from tqdm import tqdm
-from set_params_l96 import J, F, dt, T, T_spinup
+from lorenz96.set_params import J, F, dt, T, T_spinup
 
 # Print parameters
 print("(J, F)", (J, F))
