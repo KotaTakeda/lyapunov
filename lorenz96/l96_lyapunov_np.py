@@ -1,6 +1,19 @@
 import numpy as np
 from tqdm import tqdm
-from set_params import J, F, dt, T # load local set_params.py
+# from set_params import J, F, dt, T # load local set_params.py
+import argparse
+from util import load_params
+
+parser = argparse.ArgumentParser(description="Plot LEs from data")
+parser.add_argument("--data_dir", type=str, default=".", help="Directory to load data")
+args = parser.parse_args()
+data_dir = args.data_dir
+
+set_params = load_params(data_dir)
+J = set_params.J
+F = set_params.F
+dt = set_params.dt
+T = set_params.T
 
 # Print parameters
 print("(J, F)", (J, F))

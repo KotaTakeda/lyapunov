@@ -19,18 +19,13 @@ with $u^{-1} = u^{J-1}$, $u^0 = u^J$, and $u^{J+1} = u^1$.
 Typical parameter: (J, F) = (40, 8.0)
 
 ### Compute
-#### Move to directory
-```sh
-cd lorenz96
-```
-
 #### Set parameters
-modify `set_params.py`
+modify `lorenz96/set_params.py`
 
 #### by Numpy
 Compute LEs
 ```sh
-python3 l96_lyapunov_np.py
+python3 -m lorenz96.l96_lyapunov_np --data_dir=lorenz96
 ```
 
 #### by Cython
@@ -41,7 +36,7 @@ python3 setup.py build_ext --inplace
 
 Compute LEs
 ```sh
-python3 l96_lyapunov_cython.py
+python3 -m lorenz96.l96_lyapunov_cython --data_dir=lorenz96
 ```
 <!-- 
 #### by JAX
