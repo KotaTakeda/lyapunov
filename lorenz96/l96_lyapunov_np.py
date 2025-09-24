@@ -14,6 +14,7 @@ J = set_params.J
 F = set_params.F
 dt = set_params.dt
 T = set_params.T
+T_spinup = set_params.T_spinup
 
 # Print parameters
 print("(J, F)", (J, F))
@@ -102,7 +103,7 @@ x0 = np.ones(J) * F
 x0[J // 2] *= 1.01
 
 # spin-up
-t_spinup = np.arange(0.0, 1000.0, dt)
+t_spinup = np.arange(0.0, T_spinup, dt)
 x = x0
 for t in tqdm(t_spinup):
     x = rk4(lorenz96, t, x, p, dt)

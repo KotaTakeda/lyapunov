@@ -15,6 +15,8 @@ J = set_params.J
 F = set_params.F
 dt = set_params.dt
 T = set_params.T
+T_spinup = set_params.T_spinup
+
 # Print parameters
 print("(J, F)", (J, F))
 
