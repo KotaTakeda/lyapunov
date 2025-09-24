@@ -2,8 +2,19 @@ import numpy as np
 import scipy as sp
 from lorenz96_cython import rk4_cython, lorenz96_cython, lorenz96_jacobian_cython, dSdt_cython, rk4_cython_dSdt_cython
 from tqdm import tqdm
-from lorenz96.set_params import J, F, dt, T, T_spinup
+import argparse
+from util import load_params
 
+parser = argparse.ArgumentParser(description="Plot LEs from data")
+parser.add_argument("--data_dir", type=str, default=".", help="Directory to load data")
+args = parser.parse_args()
+data_dir = args.data_dir
+
+set_params = load_params(data_dir)
+J = set_params.J
+F = set_params.F
+dt = set_params.dt
+T = set_params.T
 # Print parameters
 print("(J, F)", (J, F))
 
