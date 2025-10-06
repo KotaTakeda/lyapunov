@@ -116,4 +116,4 @@ print("Final Lyapunov exponents:", LE[-1])
 print("Number of positive-neutral exponents:", i_neutral+1)
 
 # Save Lyapunov exponents
-np.save("l96_le.npy", LE)
+np.save(f"{data_dir}/l96_le.npy", LE)
