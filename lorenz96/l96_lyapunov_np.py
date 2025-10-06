@@ -105,10 +105,11 @@ x0[J // 2] *= 1.01
 # spin-up
 t_spinup = np.arange(0.0, T_spinup, dt)
 x = x0
-for t in tqdm(t_spinup):
-    x = rk4(lorenz96, t, x, p, dt)
+for tt in tqdm(t_spinup):
+    x = rk4(lorenz96, tt, x, p, dt)
 
 # Compute Lyapunov exponents
+t = np.arange(0.0, T, dt)
 LE = compute_le(lorenz96, lorenz96_jacobian, x, t, p)
 i_neutral = np.argmin(np.abs(LE[-1])) # The neutral exponent is the closest one to zero.
 print("Final Lyapunov exponents:", LE[-1])
